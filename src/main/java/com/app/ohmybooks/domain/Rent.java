@@ -1,4 +1,4 @@
-package domain;
+package com.app.ohmybooks.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
