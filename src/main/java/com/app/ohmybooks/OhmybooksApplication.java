@@ -1,0 +1,13 @@
+package com.app.ohmybooks;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class OhmybooksApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(OhmybooksApplication.class, args);
+    }
+
+}
