@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "TITLES")
-public class BookTitle {
+public class Title {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -41,7 +41,7 @@ public class BookTitle {
             fetch = FetchType.LAZY)
     private List<Book> books;
 
-    public BookTitle(@NotNull String bookTitle, @NotNull String author, @NotNull int publicationYear) {
+    public Title(@NotNull String bookTitle, @NotNull String author, @NotNull int publicationYear) {
         this.bookTitle = bookTitle;
         this.author = author;
         this.publicationYear = publicationYear;

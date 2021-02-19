@@ -26,7 +26,7 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "TITLE_ID")
     @NotNull
-    private BookTitle bookTitle;
+    private Title title;
 
     @Column(name = "STATUS")
     @NotNull
@@ -39,8 +39,8 @@ public class Book {
             fetch = FetchType.EAGER)
     private List<Rent> rent = new ArrayList<>();
 
-    public Book(@NotNull BookTitle bookTitle, @NotNull String status) {
-        this.bookTitle = bookTitle;
+    public Book(@NotNull Title title, @NotNull String status) {
+        this.title = title;
         this.status = status;
     }
 }
