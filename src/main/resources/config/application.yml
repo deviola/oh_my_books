@@ -1,0 +1,38 @@
+app:
+  time-zone: Europe/Warsaw
+  migration: true
+  reinstall: false
+  repair: true
+  security:
+    authentication:
+      accessToken:
+        secret: secret-token
+
+  spring:
+    datasource:
+      driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      database: postgresql
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect  #nie musi być - sprawdzić z postgis dialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: false
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: Europe/Warsaw
+  flyway:
+    locations: classpath:db/migration
+    encoding: UTF-8
+    clean-disabled: false
+    clean-on-validation-error: true
+    baselineOnMigrate: true
+
+

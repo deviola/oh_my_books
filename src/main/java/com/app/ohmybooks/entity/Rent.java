@@ -1,5 +1,7 @@
-package com.app.ohmybooks.domain;
+package com.app.ohmybooks.entity;
 
+import com.app.ohmybooks.entity.Book;
+import com.app.ohmybooks.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

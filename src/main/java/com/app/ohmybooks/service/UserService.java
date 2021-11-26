@@ -1,6 +1,6 @@
 package com.app.ohmybooks.service;
 
-import com.app.ohmybooks.domain.User;
+import com.app.ohmybooks.entity.User;
 import com.app.ohmybooks.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

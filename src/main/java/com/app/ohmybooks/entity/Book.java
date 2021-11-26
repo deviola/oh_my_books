@@ -1,4 +1,4 @@
-package com.app.ohmybooks.domain;
+package com.app.ohmybooks.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

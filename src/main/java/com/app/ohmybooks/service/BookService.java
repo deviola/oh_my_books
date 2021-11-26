@@ -1,9 +1,9 @@
 package com.app.ohmybooks.service;
 
-import com.app.ohmybooks.domain.Book;
-import com.app.ohmybooks.domain.Rent;
-import com.app.ohmybooks.domain.Title;
-import com.app.ohmybooks.domain.User;
+import com.app.ohmybooks.entity.Book;
+import com.app.ohmybooks.entity.Rent;
+import com.app.ohmybooks.entity.Title;
+import com.app.ohmybooks.entity.User;
 import com.app.ohmybooks.exception.NotFoundException;
 import com.app.ohmybooks.repository.BookRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ public class BookService {
         return bookRepo.findAll();
     }
     
-    public Book saveBook(final Book book) {
+    public Book createBook(final Book book) {
         return bookRepo.save(book);
     }
     
@@ -64,6 +64,7 @@ public class BookService {
         return book;
     }
 
+    //TODO DO RENTA
     public void rentBook(final Long userId, final Long bookId) throws NotFoundException{
         User user = userService.getUserById(userId).orElse(null);
         Book book = bookRepo.findById(bookId).orElse(null);
@@ -77,7 +78,8 @@ public class BookService {
             throw new NotFoundException();
         }
     }
-    
+
+    //TODO DO RENTA
     public void returnBook(final Long userId, final Long bookId, final String status) throws NotFoundException {
         Rent rent = rentService.getSpecificRental(userId, bookId).orElse(null);
         Book book = rent.getBook();

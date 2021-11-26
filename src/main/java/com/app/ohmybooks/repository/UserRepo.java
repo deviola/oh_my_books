@@ -1,6 +1,6 @@
 package com.app.ohmybooks.repository;
 
-import com.app.ohmybooks.domain.User;
+import com.app.ohmybooks.entity.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

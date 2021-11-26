@@ -1,6 +1,6 @@
 package com.app.ohmybooks.service;
 
-import com.app.ohmybooks.domain.Title;
+import com.app.ohmybooks.entity.Title;
 import com.app.ohmybooks.repository.TitleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +11,7 @@ import java.util.Optional;
 @Service
 public class TitleService {
 
+    //TODO DELETE? TO CONSIDER
     @Autowired
     private TitleRepo titleRepo;
 
