@@ -1,0 +1,116 @@
+{
+  "groups": [
+    {
+      "name": "app",
+      "type": "com.app.ohmybooks.config.property.AppProperties",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties"
+    },
+    {
+      "name": "app.base-url",
+      "type": "com.app.ohmybooks.config.property.AppProperties$BaseUrl",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties",
+      "sourceMethod": "getBaseUrl()"
+    },
+    {
+      "name": "app.security",
+      "type": "com.app.ohmybooks.config.property.AppProperties$Security",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties",
+      "sourceMethod": "getSecurity()"
+    },
+    {
+      "name": "app.security.authentication",
+      "type": "com.app.ohmybooks.config.property.AppProperties$Security$Authentication",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties$Security",
+      "sourceMethod": "getAuthentication()"
+    },
+    {
+      "name": "app.security.authentication.access-token",
+      "type": "com.app.ohmybooks.config.property.AppProperties$Security$Authentication$AccessToken",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties$Security$Authentication",
+      "sourceMethod": "getAccessToken()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "app.base-url.confirm-account",
+      "type": "java.lang.String",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties$BaseUrl"
+    },
+    {
+      "name": "app.base-url.confirm-invitation",
+      "type": "java.lang.String",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties$BaseUrl"
+    },
+    {
+      "name": "app.base-url.download-file",
+      "type": "java.lang.String",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties$BaseUrl"
+    },
+    {
+      "name": "app.base-url.main",
+      "type": "java.lang.String",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties$BaseUrl"
+    },
+    {
+      "name": "app.base-url.reset-password",
+      "type": "java.lang.String",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties$BaseUrl"
+    },
+    {
+      "name": "app.base-url.subscription",
+      "type": "java.lang.String",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties$BaseUrl"
+    },
+    {
+      "name": "app.migration",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties"
+    },
+    {
+      "name": "app.reinstall",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties"
+    },
+    {
+      "name": "app.repair",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties"
+    },
+    {
+      "name": "app.security.authentication.access-token.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties$Security$Authentication$AccessToken"
+    },
+    {
+      "name": "app.security.authentication.access-token.token-validity",
+      "type": "java.lang.Long",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties$Security$Authentication$AccessToken"
+    },
+    {
+      "name": "app.security.authentication.access-token.token-validity-anonymous",
+      "type": "java.lang.Long",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties$Security$Authentication$AccessToken"
+    },
+    {
+      "name": "app.security.authentication.access-token.token-validity-for-context",
+      "type": "java.lang.Long",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties$Security$Authentication$AccessToken"
+    },
+    {
+      "name": "app.security.authentication.access-token.token-validity-for-remember-me",
+      "type": "java.lang.Long",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties$Security$Authentication$AccessToken"
+    },
+    {
+      "name": "app.security.authentication.access-token.token-validity-social",
+      "type": "java.lang.Long",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties$Security$Authentication$AccessToken"
+    },
+    {
+      "name": "app.time-zone",
+      "type": "java.lang.String",
+      "sourceType": "com.app.ohmybooks.config.property.AppProperties"
+    }
+  ],
+  "hints": []
+}
