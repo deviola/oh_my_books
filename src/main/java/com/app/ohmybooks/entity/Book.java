@@ -1,46 +1,39 @@
 package com.app.ohmybooks.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.app.ohmybooks.component.entity.BaseEntity;
+import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "BOOKS")
-public class Book {
+@Builder
+@Entity
+@Table(schema = "public", name = "`BOOKS`")
+public class Book extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @NotNull
-    @Column(name = "ID", unique = true)
-    private Long id;
+    @JoinColumn(name = "title", nullable = false)
+    private String title;
 
     @ManyToOne
-    @JoinColumn(name = "TITLE_ID")
-    @NotNull
-    private Title title;
+    @JoinColumn(name = "`authorId`", nullable = false)
+    private Author author;
 
-    @Column(name = "STATUS")
-    @NotNull
-    private String status;
+    @Column(name = "isbn", nullable = false)
+    private String isbn;
 
-    @OneToMany(
-            targetEntity = Rent.class,
-            mappedBy = "book",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
-    private List<Rent> rent = new ArrayList<>();
+    @Column(name = "`publicationYear`", nullable = false)
+    private Long publicationYear;
 
-    public Book(@NotNull Title title, @NotNull String status) {
-        this.title = title;
-        this.status = status;
+    @Column(name = "status", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private BookStatus status;
+
+    public enum BookStatus {
+        AVAILABLE, BOOKED, RENTED
     }
+
 }

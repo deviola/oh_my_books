@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "`LANGUAGES`")
+@Table(schema = "public", name = "`LANGUAGES`")
 public class Language extends BaseEntity {
 
     @Column(nullable = false)

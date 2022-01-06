@@ -7,10 +7,18 @@ app:
     authentication:
       accessToken:
         secret: secret-token
+        token-validity: 864000
+        token-validity-for-remember-me: 8640000
+        token-validity-for-context: 4320000
+        token-validity-social: 604800
+        token-validity-anonymous: 259200
 
-  spring:
-    datasource:
-      driver-class-name: org.postgresql.Driver
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: validate
@@ -19,7 +27,7 @@ app:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate:
-        dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect  #nie musi być - sprawdzić z postgis dialect
+       ## dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect  #nie musi być - sprawdzić z postgis dialect
         jdbc:
           lob:
             non_contextual_creation: true
@@ -35,4 +43,13 @@ app:
     clean-on-validation-error: true
     baselineOnMigrate: true
 
-
+---
+app:
+  reinstall: false
+  base-url:
+    main: http://localhost:3000/
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/library
+    username: postgres
+    password: postgres

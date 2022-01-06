@@ -12,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "`LOGINS`")
+@Table(schema = "public", name = "`LOGINS`")
 public class Login extends BaseEntity {
 
     @Column

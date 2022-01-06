@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "USERS")
+@Table(schema = "public", name = "`USERS`")
 public class User extends BaseEntity {
 
     @Column(name = "`firstName`")

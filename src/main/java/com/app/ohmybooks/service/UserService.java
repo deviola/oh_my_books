@@ -1,7 +1,7 @@
 package com.app.ohmybooks.service;
 
 import com.app.ohmybooks.entity.User;
-import com.app.ohmybooks.repository.UserRepo;
+import com.app.ohmybooks.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,17 +12,17 @@ import java.util.Optional;
 public class UserService {
 
     @Autowired
-    private UserRepo userRepo;
+    private UserRepository userRepository;
 
     public List<User> getAllUsers() {
-        return userRepo.findAll();
+        return userRepository.findAll();
     }
 
     public Optional<User> getUserById(Long id) {
-        return userRepo.findById(id);
+        return userRepository.findById(id);
     }
 
     public User saveUser(final User user) {
-        return userRepo.save(user);
+        return userRepository.save(user);
     }
 }
