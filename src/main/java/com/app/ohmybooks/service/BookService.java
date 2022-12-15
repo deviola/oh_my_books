@@ -1,22 +1,19 @@
 package com.app.ohmybooks.service;
 
-import com.app.ohmybooks.constant.MessageConstant;
 import com.app.ohmybooks.domain.dto.BookDto;
-import com.app.ohmybooks.domain.dto.CreateBookReqDto;
+import com.app.ohmybooks.domain.dto.BookResponseDTO;
+import com.app.ohmybooks.domain.dto.CreateBookReqDTO;
 import com.app.ohmybooks.entity.*;
-import com.app.ohmybooks.exception.NotFoundException;
 import com.app.ohmybooks.repository.Author2BookRepository;
 import com.app.ohmybooks.repository.AuthorRepository;
 import com.app.ohmybooks.repository.BookRepository;
-import com.google.common.base.Preconditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 @Service
 public class BookService {
@@ -47,24 +44,25 @@ public class BookService {
                 .map(BookDto::new)
                 .collect(Collectors.toList());
     }
-    
-    public Book createBook(CreateBookReqDto createBookReqDto) {
 
-        Author author = new Author(createBookReqDto.getAuthorName(), createBookReqDto.getAuthorLastName());
+    @Transactional
+    public BookResponseDTO createBook(CreateBookReqDTO request) {
 
-        if (authorRepository.findByName(createBookReqDto.getAuthorName(), createBookReqDto.getAuthorLastName()) == null) {
+        Author author = new Author(request.getAuthorFirstName(), request.getAuthorLastName());
+
+        if (authorRepository.findByFirstNameAndLastName(request.getAuthorFirstName(), request.getAuthorLastName()) == null) {
             authorRepository.save(author);
         }
 
         Book book = Book.builder()
-                .title(createBookReqDto.getTitle())
+                .title(request.getTitle())
                 .author(author) // TODO add multiple authors
-                .isbn(createBookReqDto.getIsbn())
-                .publicationYear(createBookReqDto.getYear())
+                .isbn(request.getIsbn())
+                .publicationYear(request.getYear())
                 .status(Book.BookStatus.AVAILABLE)
                 .build();
 
-        return bookRepository.save(book);
+        return new BookResponseDTO(bookRepository.save(book));
     }
     
     public Optional<Book> getBookById(final Long id) {

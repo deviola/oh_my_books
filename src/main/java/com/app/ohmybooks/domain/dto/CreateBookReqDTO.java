@@ -7,10 +7,10 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateBookReqDto {
+public class CreateBookReqDTO {
 
     private String title;
-    private String authorName;
+    private String authorFirstName;
     private String authorLastName;
     private String isbn;
     private Long year;

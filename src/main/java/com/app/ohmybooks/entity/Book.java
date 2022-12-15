@@ -4,7 +4,6 @@ import com.app.ohmybooks.component.entity.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Getter
 @Setter
@@ -18,7 +17,7 @@ public class Book extends BaseEntity {
     @JoinColumn(name = "title", nullable = false)
     private String title;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "`authorId`", nullable = false)
     private Author author;
 

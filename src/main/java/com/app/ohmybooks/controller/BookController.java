@@ -1,7 +1,10 @@
 package com.app.ohmybooks.controller;
 
+import com.app.ohmybooks.component.responseEntity.HeaderHelper;
+import com.app.ohmybooks.constant.MessageConstant;
 import com.app.ohmybooks.domain.dto.BookDto;
-import com.app.ohmybooks.domain.dto.CreateBookReqDto;
+import com.app.ohmybooks.domain.dto.BookResponseDTO;
+import com.app.ohmybooks.domain.dto.CreateBookReqDTO;
 import com.app.ohmybooks.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,17 +34,11 @@ public class BookController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> createBook(@RequestBody CreateBookReqDto createBookReqDto) {
-        bookService.createBook(createBookReqDto);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<BookResponseDTO> createBook(@RequestBody CreateBookReqDTO request) {
+        bookService.createBook(request);
+        return ResponseEntity.ok()
+                .headers(HeaderHelper.getHeadersMessage(MessageConstant.NEW_BOOK_CREATED))
+                .body(bookService.createBook(request));
     }
 
-    //@
-//    public ResponseEntity<?> updateBook() {
-//
-//    }
-//
-//    public ResponseEntity<?> deleteBook() {
-//
-//    }
 }

@@ -1,13 +1,14 @@
 package com.app.ohmybooks.domain.dto;
 
 import com.app.ohmybooks.entity.Author;
-import com.app.ohmybooks.entity.Author2Book;
 import com.app.ohmybooks.entity.Book;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookDto {

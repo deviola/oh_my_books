@@ -16,10 +16,10 @@ import javax.persistence.Table;
 @Table(schema = "public", name = "`AUTHORS`")
 public class Author extends BaseEntity {
 
-    @Column(name = "firstName", nullable = false)
+    @Column(name = "`firstName`", nullable = false)
     private String firstName;
 
-    @Column(name = "lastName", nullable = false)
+    @Column(name = "`lastName`", nullable = false)
     private String lastName;
 
 }
